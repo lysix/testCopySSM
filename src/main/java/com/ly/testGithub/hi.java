@@ -8,5 +8,7 @@ public class hi {
         System.out.println("hello git");
 
         System.out.println("hello shell");
+
+        System.out.println("hello linux");
     }
 }
