@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "mybatis-3-mapper.dtd">
+<mapper namespace="com.ly.dao.UserDao">
+    <update id="updatePassword" parameterType="person">
+        update user set password = #{newpassword} where id= #{id} and password=#{oldpassword}
+    </update>
+
+    <select id="getSelfData" resultType="user" parameterType="int">
+        select * from user where id =#{id}
+    </select>
+
+    <update id="updateSelfData" parameterType="int">
+        update user
+        <where>
+            <if test="username!=null">
+                set username = #{username}
+            </if>
+        </where>
+        <where>
+            <if test="">
+
+            </if>
+        </where>
+        <where>
+            <if test="">
+
+            </if>
+        </where>
+        <where>
+            <if test="">
+
+            </if>
+        </where>
+        where id = #{id}
+    </update>
+</mapper>

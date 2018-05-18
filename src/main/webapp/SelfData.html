@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="http://how2j.cn/study/jquery.min.js"></script>
+    <title>Title</title>
+</head>
+<style>
+    div {
+        width: 400px;
+        height: 200px;
+        background: green;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+    }
+</style>
+
+<body>
+<div>
+    <form>
+        <input type="hidden" name="id">
+        username:<input type="text" name="name">
+        <input type="hidden" name="passowrd"><br>
+        email:<input type="text" name="email"><br>
+        address:<input type="text" name="address"><br>
+        <span><a href="" onclick="changeSelfData()">更改</a></span>
+    </form>
+</div>
+</body>
+<script>
+    $.ajax({
+        url: '/user/getSelfData.action',
+        methodType: 'post',
+        dataType: 'json',
+        success: function (data) {
+            alert(data);
+            $("input[name='name']").val(data.name);
+            $("input[name='id']").val(data.id);
+            //$("input[name='passowrd']").val(data.password);
+            $("input[name='email']").val(data.email);
+            $("input[name='address']").val(data.address);
+        },
+        error: function () {
+            alert("error");
+        }
+    });
+</script>
+</html>
